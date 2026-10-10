@@ -2,12 +2,26 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        hello_test: hello_test {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <
+                &kp H &kp E &kp L &kp L &kp O &kp SPACE
+                &kp Z &kp M &kp K
+            >;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp A &kp B &kp C &kp D
+                &hello_test &kp A
+                &kp B        &kp C
             >;
         };
     };
